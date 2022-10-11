@@ -67,15 +67,15 @@ impl AntiAim {
         let [x, y, z] = view_angle.to_array();
 
         let x = match self.pitch {
-            Pitch::Up => -89.0,
-            Pitch::Down => 89.0,
+            Pitch::Up => -89.5,
+            Pitch::Down => 89.5,
             _ => x,
         };
 
         let mut y = y + self.yaw_offset;
 
         if self.yaw_jitter {
-            y += 7.5 - random(0.0..=15.0);
+            y += 7.5 - random(0.0..=89.0);
         }
 
         if !send_packet {
